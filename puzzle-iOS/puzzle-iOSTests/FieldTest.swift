@@ -40,7 +40,7 @@ class puzzle_iOSTests: XCTestCase {
         XCTAssertEqual(field.field, [])
     }
     
-    func test_tooSmallOrNegativeFieldSize_checkFieldIsNil_Nil() {
+    func test_tooSmallOrNegativeFieldSize_checkFieldIsNil() {
         for size in -10...1 {
             let myField = Field<Int>(size: size)
             

@@ -10,8 +10,11 @@ import Foundation
 
 protocol PuzzleView {
     func onUpdate(size: Int)
-    func onUpdate(presenter: CellsPresenter)
     func onPuzzleSolved()
+}
+
+protocol PuzzleFieldChangedDelegate{
+    func onFieldChanged(field: [Int])
 }
 
 protocol PuzzlePresenter {

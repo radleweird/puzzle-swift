@@ -9,9 +9,12 @@
 import Foundation
 
 protocol Cell {
-    func changeColor(red: Int, green: Int, blue: Int, alpha: Int)
+    func onColorUpdate(red: Int, green: Int, blue: Int, alpha: Int)
+    func onValueUpdate(value: Int)
 }
 
 protocol CellsPresenter {
+    func registerCell(cell: Cell)
+    func inregisterCells()
     func value(atIndex: Int) -> Int
 }
