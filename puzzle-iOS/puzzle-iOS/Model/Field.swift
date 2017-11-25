@@ -14,9 +14,8 @@ enum Direction: Int {
 
 class Field<Cell: Equatable>: Equatable {
     
-    //TODO with migration to swift 4 fileprivate -> private
-    fileprivate(set) var field: [Cell] = []
-    fileprivate var zeroPos: Int!
+    private(set) var field: [Cell] = []
+    private var zeroPos: Int!
     var size: Int {
         didSet {
             configureFieldArrangement()
@@ -91,20 +90,20 @@ extension Field {
 private extension Field {
     
     func configureFieldArrangement() {
-        self.field = []
-        guard let fieldSource = self.fieldSource else {
+        field = []
+        guard let fieldSource = fieldSource else {
             return
         }
         for idx in 0..<size * size {
-            self.field.append(fieldSource.cell(forIndex: idx))
+            field.append(fieldSource.cell(forIndex: idx))
         }
-        self.zeroPos = field.count - 1
+        zeroPos = field.count - 1
     }
     
     func swap(firstIndex: Int, secondIndex: Int) {
         let temp = field[firstIndex]
-        self.field[firstIndex] = field[secondIndex]
-        self.field[secondIndex] = temp
+        field[firstIndex] = field[secondIndex]
+        field[secondIndex] = temp
     }
     
 }

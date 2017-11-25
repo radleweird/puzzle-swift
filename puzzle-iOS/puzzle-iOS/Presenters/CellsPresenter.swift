@@ -15,6 +15,6 @@ protocol Cell {
 
 protocol CellsPresenter {
     func registerCell(cell: Cell)
-    func inregisterCells()
+    func unregisterCells()
     func value(atIndex: Int) -> Int
 }
