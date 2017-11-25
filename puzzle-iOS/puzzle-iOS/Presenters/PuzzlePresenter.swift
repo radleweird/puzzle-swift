@@ -9,15 +9,17 @@
 import Foundation
 
 protocol PuzzleView {
-    func onUpdate(size: Int)
-    func onPuzzleSolved()
+    func update(withSize: Int)
+    func puzzleSolved()
 }
 
 protocol PuzzleFieldChangedDelegate{
-    func onFieldChanged(field: [Int])
+    func changes(withField: [Int])
 }
 
 protocol PuzzlePresenter {
+    var view: PuzzleView? { get set }
+    
     func onSwipeUp()
     func onSwipeRight()
     func onSwipeDown()

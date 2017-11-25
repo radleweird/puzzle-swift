@@ -12,15 +12,18 @@ enum Settings {
     case fieldSize, cellColor
 }
 
+protocol SettingsView {
+    func update(withIdentifier: Settings, value: String)
+}
+
 protocol SettingsSizeDelegate {
-    func onSettingsSizeChanged(size: Int)
+    func settingsUpdate(withSize: Int)
 }
 
 protocol SettingsCellColorDelegate {
-    func onSettingsCellColorChanged(red: Int, green: Int, blue: Int, alpha: Int)
+    func settingsUpdate(withColor: (red: Int, green: Int, blue: Int, alpha: Int))
 }
 
 protocol SettingsPresenter {
-    func settings(getWithIdentifier: Settings) -> String
     func settings(writeWithIdentifier: Settings, value: String)
 }

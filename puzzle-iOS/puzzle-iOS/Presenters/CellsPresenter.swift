@@ -9,12 +9,13 @@
 import Foundation
 
 protocol Cell {
-    func onColorUpdate(red: Int, green: Int, blue: Int, alpha: Int)
-    func onValueUpdate(value: Int)
+    func update(withColor: (red: Int, green: Int, blue: Int, alpha: Int))
+    func update(withValue: Int)
 }
 
 protocol CellsPresenter {
-    func registerCell(cell: Cell)
+    var cells: [PuzzleView?] { get set }
+    
     func unregisterCells()
     func value(atIndex: Int) -> Int
 }
