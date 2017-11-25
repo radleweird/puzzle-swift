@@ -8,6 +8,6 @@
 
 import Foundation
 
-class PreferencesManager {
+protocol PreferencesManager {
     func settings(withIdentifier: String) -> String
 }
