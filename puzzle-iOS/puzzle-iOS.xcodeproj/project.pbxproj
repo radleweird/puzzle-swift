@@ -481,6 +481,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DNKU4QZ76B;
 				INFOPLIST_FILE = "puzzle-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "goloviznin.eldar.puzzle-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -496,6 +497,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DNKU4QZ76B;
 				INFOPLIST_FILE = "puzzle-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "goloviznin.eldar.puzzle-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -68,8 +68,7 @@ class PuzzlePresenterDefault: PuzzlePresenter {
 extension PuzzlePresenterDefault: PreferenceManagerSizeDelegate {
     
     func update() {
-        generateFields()
-        updateView()
+        onNewGame()
     }
     
 }
