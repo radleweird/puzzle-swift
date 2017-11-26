@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		78508EA51FC9B7A70005F96F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78508EA41FC9B7A70005F96F /* AppDelegate.swift */; };
-		78508EA71FC9B7A70005F96F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78508EA61FC9B7A70005F96F /* ViewController.swift */; };
 		78508EAA1FC9B7A70005F96F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78508EA81FC9B7A70005F96F /* Main.storyboard */; };
 		78508EAC1FC9B7A70005F96F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78508EAB1FC9B7A70005F96F /* Assets.xcassets */; };
 		78508EAF1FC9B7A70005F96F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78508EAD1FC9B7A70005F96F /* LaunchScreen.storyboard */; };
@@ -19,8 +18,9 @@
 		78508F0B1FC9F1610005F96F /* PuzzlePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78508F0A1FC9F1610005F96F /* PuzzlePresenter.swift */; };
 		78508F0D1FC9F4D10005F96F /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78508F0C1FC9F4D10005F96F /* SettingsPresenter.swift */; };
 		78508F171FC9F8300005F96F /* MainPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78508F161FC9F8300005F96F /* MainPresenterTest.swift */; };
-		78508F191FC9F9BC0005F96F /* CellsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78508F181FC9F9BC0005F96F /* CellsPresenter.swift */; };
 		78508F1D1FC9FC240005F96F /* PreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78508F1C1FC9FC240005F96F /* PreferencesManager.swift */; };
+		78877ACA1FCB6115005DB1B1 /* PuzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78877AC91FCB6115005DB1B1 /* PuzzleViewController.swift */; };
+		78D372421FCB5E11008627EC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D372411FCB5E11008627EC /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +43,6 @@
 /* Begin PBXFileReference section */
 		78508EA11FC9B7A70005F96F /* puzzle-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "puzzle-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78508EA41FC9B7A70005F96F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		78508EA61FC9B7A70005F96F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		78508EA91FC9B7A70005F96F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		78508EAB1FC9B7A70005F96F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78508EAE1FC9B7A70005F96F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,8 +58,9 @@
 		78508F0A1FC9F1610005F96F /* PuzzlePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzlePresenter.swift; sourceTree = "<group>"; };
 		78508F0C1FC9F4D10005F96F /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		78508F161FC9F8300005F96F /* MainPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenterTest.swift; sourceTree = "<group>"; };
-		78508F181FC9F9BC0005F96F /* CellsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellsPresenter.swift; sourceTree = "<group>"; };
 		78508F1C1FC9FC240005F96F /* PreferencesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesManager.swift; sourceTree = "<group>"; };
+		78877AC91FCB6115005DB1B1 /* PuzzleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleViewController.swift; sourceTree = "<group>"; };
+		78D372411FCB5E11008627EC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,8 +114,9 @@
 				78508F1A1FC9FC050005F96F /* Tools */,
 				78508ED71FC9CD1A0005F96F /* Presenters */,
 				78508ED21FC9B7F30005F96F /* Model */,
-				78508EA61FC9B7A70005F96F /* ViewController.swift */,
 				78508EA41FC9B7A70005F96F /* AppDelegate.swift */,
+				78877AC91FCB6115005DB1B1 /* PuzzleViewController.swift */,
+				78D372411FCB5E11008627EC /* SettingsViewController.swift */,
 				78508EA81FC9B7A70005F96F /* Main.storyboard */,
 				78508EAB1FC9B7A70005F96F /* Assets.xcassets */,
 				78508EAD1FC9B7A70005F96F /* LaunchScreen.storyboard */,
@@ -155,7 +156,6 @@
 		78508ED71FC9CD1A0005F96F /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
-				78508F181FC9F9BC0005F96F /* CellsPresenter.swift */,
 				78508F0A1FC9F1610005F96F /* PuzzlePresenter.swift */,
 				78508F0C1FC9F4D10005F96F /* SettingsPresenter.swift */,
 			);
@@ -305,13 +305,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				78508F1D1FC9FC240005F96F /* PreferencesManager.swift in Sources */,
-				78508EA71FC9B7A70005F96F /* ViewController.swift in Sources */,
-				78508F191FC9F9BC0005F96F /* CellsPresenter.swift in Sources */,
+				78877ACA1FCB6115005DB1B1 /* PuzzleViewController.swift in Sources */,
 				78508ED91FC9CF820005F96F /* FieldSource.swift in Sources */,
 				78508EA51FC9B7A70005F96F /* AppDelegate.swift in Sources */,
 				78508ED41FC9B8000005F96F /* Field.swift in Sources */,
 				78508F0B1FC9F1610005F96F /* PuzzlePresenter.swift in Sources */,
 				78508F0D1FC9F4D10005F96F /* SettingsPresenter.swift in Sources */,
+				78D372421FCB5E11008627EC /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i0B-bF-eXc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,20 +9,106 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Settings-->
+        <scene sceneID="rep-kp-Obl">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="puzzle_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="Lbe-H6-58K" customClass="SettingsViewController" customModule="puzzle_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="l8Q-iL-SBN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <gestureRecognizers/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ymz-DX-Or2">
+                                <rect key="frame" x="52.5" y="276" width="270" height="115.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Field size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzt-OO-7sY">
+                                        <rect key="frame" x="79.5" y="0.0" width="111" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="y0b-JF-A3j">
+                                        <rect key="frame" x="0.0" y="33.5" width="270" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="WVh-eo-DZd"/>
+                                            <constraint firstAttribute="width" constant="270" id="kU5-yk-Ap8"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="3x3"/>
+                                            <segment title="4x4"/>
+                                            <segment title="5x5"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="segmentValueChanged:" destination="Lbe-H6-58K" eventType="valueChanged" id="QXf-Lu-AuS"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4h2-Ic-Agn">
+                                        <rect key="frame" x="102.5" y="61.5" width="65.5" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ColorLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HY7-tc-BRI">
+                                        <rect key="frame" x="93.5" y="95" width="83" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="y0b-JF-A3j" firstAttribute="width" secondItem="Ymz-DX-Or2" secondAttribute="width" id="aXj-Vi-xEL"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ymz-DX-Or2" firstAttribute="centerX" secondItem="l8Q-iL-SBN" secondAttribute="centerX" id="aLb-d9-N3H"/>
+                            <constraint firstItem="Ymz-DX-Or2" firstAttribute="centerY" secondItem="l8Q-iL-SBN" secondAttribute="centerY" id="jG2-CS-DFs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="z2B-HV-Pip"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Settings" id="Pmn-h3-dwM"/>
+                    <connections>
+                        <outlet property="colorLabel" destination="HY7-tc-BRI" id="iEa-aQ-sw2"/>
+                        <outlet property="segmentedControl" destination="y0b-JF-A3j" id="bzM-SC-DHT"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kkP-sx-3kN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="504.80000000000001" y="-416.0419790104948"/>
+        </scene>
+        <!--Puzzle-->
+        <scene sceneID="ZwR-zu-GWI">
+            <objects>
+                <viewController id="9E0-Rz-5jQ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Xa-Vs-0bS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="Jeb-wp-gWm"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Puzzle" id="7j5-fL-RWY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s2D-cX-iYu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="506" y="-1080"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="bTO-vj-J4k">
+            <objects>
+                <tabBarController id="i0B-bF-eXc" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bmh-J9-J0P">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="9E0-Rz-5jQ" kind="relationship" relationship="viewControllers" id="NEN-B4-8VB"/>
+                        <segue destination="Lbe-H6-58K" kind="relationship" relationship="viewControllers" id="fbG-fC-HOj"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vyo-sU-eYt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-446" y="-748"/>
         </scene>
     </scenes>
 </document>

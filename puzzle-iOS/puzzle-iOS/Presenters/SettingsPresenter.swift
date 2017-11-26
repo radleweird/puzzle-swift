@@ -8,22 +8,40 @@
 
 import Foundation
 
-enum Settings {
-    case fieldSize, cellColor
-}
-
-protocol SettingsView {
-    func update(withIdentifier: Settings, value: String)
-}
-
-protocol SettingsSizeDelegate {
-    func settingsUpdate(withSize: Int)
-}
-
-protocol SettingsCellColorDelegate {
-    func settingsUpdate(withColor: (red: Int, green: Int, blue: Int, alpha: Int))
+protocol SettingsView: class {
+    func update(fieldSizeWithValue: Int)
+    func update(updateCellColorWithValue: String)
 }
 
 protocol SettingsPresenter {
-    func settings(writeWithIdentifier: Settings, value: String)
+    var view: SettingsView? { get set }
+    
+    func settings(fieldSizeChange: Int)
+    func settings(cellColorChange: String)
+}
+
+class SettingsPresenterDefault: SettingsPresenter {
+    
+    weak var view: SettingsView? {
+        didSet {
+            view?.update(fieldSizeWithValue: preferencesManager.settingsFieldSize())
+            view?.update(updateCellColorWithValue: preferencesManager.settingsCellColor())
+        }
+    }
+    
+    let preferencesManager: PreferencesManager
+    
+    init(preferencesManager: PreferencesManager) {
+        self.preferencesManager = preferencesManager
+    }
+    
+    func settings(fieldSizeChange size: Int) {
+        preferencesManager.settings(fieldSizeWriteWithValue: size)
+    }
+    
+    func settings(cellColorChange color: String) {
+        preferencesManager.settings(cellColorwriteWithValue: color)
+    }
+    
+    
 }
