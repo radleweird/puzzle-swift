@@ -12,26 +12,18 @@ enum Direction: Int {
     case up, right, down, left
 }
 
-class Field<Cell: Equatable>: Equatable {
+class Field: Equatable {
     
-    private(set) var field: [Cell] = []
-    private var zeroPos: Int!
-    var size: Int {
-        didSet {
-            configureFieldArrangement()
-        }
-    }
-    var fieldSource: FieldSource<Cell>? {
-        didSet {
-            configureFieldArrangement()
-        }
-    }
-    
+    private(set) var field: [Int] = []
+    private var zeroPos: Int
+    private var size: Int
     init?(size: Int) {
         guard size > 1 else {
             return nil
         }
         self.size = size
+        field = Array<Int>(1...size * size - 1) + [0]
+        zeroPos = field.count - 1
     }
     
     func move(to direction: Direction) -> Bool {
@@ -88,17 +80,6 @@ extension Field {
 }
 
 private extension Field {
-    
-    func configureFieldArrangement() {
-        field = []
-        guard let fieldSource = fieldSource else {
-            return
-        }
-        for idx in 0..<size * size {
-            field.append(fieldSource.cell(forIndex: idx))
-        }
-        zeroPos = field.count - 1
-    }
     
     func swap(firstIndex: Int, secondIndex: Int) {
         let temp = field[firstIndex]

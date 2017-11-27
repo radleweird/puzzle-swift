@@ -34,12 +34,15 @@ class PuzzlePresenterDefault: PuzzlePresenter {
     }
     
     private let preferencesManager: PreferencesManager
-    private var field: Field<Int>!
-    private var finiteField: Field<Int>!
+    private var field: Field
+    private var finiteField: Field
     
     init(preferencesManager: PreferencesManager) {
         self.preferencesManager = preferencesManager
-        generateFields()
+        let size = preferencesManager.settingsFieldSize()
+        self.field = Field(size: size)!
+        self.field.shuffle(times: 200)
+        self.finiteField = Field(size: size)!
         self.preferencesManager.preferenceManagerSizeDelegate = self
     }
     
@@ -78,18 +81,9 @@ extension PuzzlePresenterDefault {
     
     private func generateFields() {
         let size = preferencesManager.settingsFieldSize()
-        let fieldSource = FieldSource(source: generateIntSourceArray(withSize: size))
-        field = Field<Int>(size: size)!
-        field.fieldSource = fieldSource
+        field = Field(size: size)!
         field.shuffle(times: 200)
-        finiteField = Field<Int>(size: size)!
-        finiteField.fieldSource = fieldSource
-    }
-    
-    private func generateIntSourceArray(withSize size: Int) -> [Int] {
-        var arr = Array(1...size * size)
-        arr[arr.count - 1] = 0
-        return arr
+        finiteField = Field(size: size)!
     }
     
     private func handleSwipe(direction: Direction) {

@@ -14,7 +14,6 @@
 		78508EBA1FC9B7A80005F96F /* FieldTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78508EB91FC9B7A80005F96F /* FieldTest.swift */; };
 		78508EC51FC9B7A80005F96F /* puzzle_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78508EC41FC9B7A80005F96F /* puzzle_iOSUITests.swift */; };
 		78508ED41FC9B8000005F96F /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78508ED31FC9B8000005F96F /* Field.swift */; };
-		78508ED91FC9CF820005F96F /* FieldSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78508ED81FC9CF820005F96F /* FieldSource.swift */; };
 		78508F0B1FC9F1610005F96F /* PuzzlePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78508F0A1FC9F1610005F96F /* PuzzlePresenter.swift */; };
 		78508F0D1FC9F4D10005F96F /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78508F0C1FC9F4D10005F96F /* SettingsPresenter.swift */; };
 		78508F171FC9F8300005F96F /* MainPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78508F161FC9F8300005F96F /* MainPresenterTest.swift */; };
@@ -55,7 +54,6 @@
 		78508EC41FC9B7A80005F96F /* puzzle_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = puzzle_iOSUITests.swift; sourceTree = "<group>"; };
 		78508EC61FC9B7A80005F96F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78508ED31FC9B8000005F96F /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
-		78508ED81FC9CF820005F96F /* FieldSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldSource.swift; sourceTree = "<group>"; };
 		78508F0A1FC9F1610005F96F /* PuzzlePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzlePresenter.swift; sourceTree = "<group>"; };
 		78508F0C1FC9F4D10005F96F /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		78508F161FC9F8300005F96F /* MainPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenterTest.swift; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				78508ED31FC9B8000005F96F /* Field.swift */,
-				78508ED81FC9CF820005F96F /* FieldSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -309,7 +306,6 @@
 			files = (
 				78508F1D1FC9FC240005F96F /* PreferencesManager.swift in Sources */,
 				78877ACA1FCB6115005DB1B1 /* PuzzleViewController.swift in Sources */,
-				78508ED91FC9CF820005F96F /* FieldSource.swift in Sources */,
 				78508EA51FC9B7A70005F96F /* AppDelegate.swift in Sources */,
 				78508ED41FC9B8000005F96F /* Field.swift in Sources */,
 				78508F0B1FC9F1610005F96F /* PuzzlePresenter.swift in Sources */,
