@@ -20,6 +20,7 @@ class ViewCell: UICollectionViewCell {
         switch number {
         case 0:
             cell?.text = ""
+            cell?.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
         default:
             cell?.text = String(number)
             cell?.backgroundColor = UIColor.yellow

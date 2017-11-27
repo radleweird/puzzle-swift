@@ -13,13 +13,11 @@ class PuzzleViewController: UICollectionViewController {
     private var puzzlePresenter: PuzzlePresenter?
     private var fieldSize: Int = 0
     private var field: [Int] = []
-    private var isFieldChanged = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView?.isScrollEnabled = false
-        collectionView?.center = CGPoint(x: view.frame.width / 2, y: view.frame.height / 2)
         
         let upSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(onSwipeGesture(_:)))
         upSwipeRecognizer.direction = .up
@@ -59,25 +57,11 @@ extension PuzzleViewController: PuzzleView {
     
     func update(withSize size: Int) {
         self.fieldSize = size
-        self.isFieldChanged = true
     }
     
     func update(withField field: [Int]) {
-        let oldState = self.field
         self.field = field
-        
-        if isFieldChanged {
-            collectionView?.reloadData()
-            self.isFieldChanged = false
-            return
-        }
-        
-        let from = oldState.index(of: 0)!
-        let to = self.field.index(of: 0)!
-        let fromIndexPath = IndexPath(row: from % fieldSize, section: from / fieldSize)
-        let toIndexPath = IndexPath(row: to % fieldSize, section: to / fieldSize)
-        
-        collectionView?.moveItem(at: fromIndexPath, to: toIndexPath)
+        collectionView?.reloadData()
     }
 
     func puzzleSolved() {
@@ -104,27 +88,9 @@ extension PuzzleViewController {
 }
 
 extension PuzzleViewController: UICollectionViewDelegateFlowLayout {
-    
-    private var availableHeight: CGFloat {
-        return view.frame.height - (tabBarController?.tabBar.frame.height ?? 0) - (navigationController?.navigationBar.frame.height ?? 0)
-    }
-    
-    private var availableWidth: CGFloat {
-        return view.frame.width
-    }
-    
-    private var defaultSectionInsets: UIEdgeInsets {
-        return UIEdgeInsets(top: 5.0, left: 10.0, bottom: 5.0, right: 10.0)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return defaultSectionInsets
-    }
-    
+      
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let paddingSpace = defaultSectionInsets.left * CGFloat(fieldSize + 1)
-        let availableSpace = min(availableWidth, availableHeight) - paddingSpace
-        let widthAndHeight = availableSpace / CGFloat(fieldSize)
+        let widthAndHeight = view.frame.width / CGFloat(fieldSize)
         return CGSize(width: widthAndHeight, height: widthAndHeight)
     }
     
