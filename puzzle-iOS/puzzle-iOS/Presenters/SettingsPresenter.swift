@@ -13,7 +13,7 @@ protocol SettingsView: class {
     func update(updateCellColorWithValue: String)
 }
 
-protocol SettingsPresenter {
+protocol SettingsPresenter: class {
     var view: SettingsView? { get set }
     
     func settings(fieldSizeChange: Int)

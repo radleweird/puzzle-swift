@@ -4,7 +4,9 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -76,22 +78,6 @@
             </objects>
             <point key="canvasLocation" x="504.80000000000001" y="-416.0419790104948"/>
         </scene>
-        <!--Puzzle-->
-        <scene sceneID="ZwR-zu-GWI">
-            <objects>
-                <viewController id="9E0-Rz-5jQ" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3Xa-Vs-0bS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="Jeb-wp-gWm"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Puzzle" id="7j5-fL-RWY"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="s2D-cX-iYu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="506" y="-1080"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="bTO-vj-J4k">
             <objects>
@@ -102,13 +88,68 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9E0-Rz-5jQ" kind="relationship" relationship="viewControllers" id="NEN-B4-8VB"/>
+                        <segue destination="yUs-El-pNQ" kind="relationship" relationship="viewControllers" id="A9W-Z1-y60"/>
                         <segue destination="Lbe-H6-58K" kind="relationship" relationship="viewControllers" id="fbG-fC-HOj"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vyo-sU-eYt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-446" y="-748"/>
+        </scene>
+        <!--Puzzle-->
+        <scene sceneID="qXP-aW-Bai">
+            <objects>
+                <collectionViewController id="yUs-El-pNQ" customClass="PuzzleViewController" customModule="puzzle_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="JuA-Pw-bZX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9vh-SU-CpK">
+                            <size key="itemSize" width="107" height="102"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="identifierOfCell" id="gaM-47-ZsB" customClass="ViewCell" customModule="puzzle_iOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQT-dt-fhh">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="bottomMargin" secondItem="rQT-dt-fhh" secondAttribute="bottom" id="Riu-Om-2QN"/>
+                                    <constraint firstItem="rQT-dt-fhh" firstAttribute="top" secondItem="gaM-47-ZsB" secondAttribute="topMargin" id="czV-dK-f93"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="rQT-dt-fhh" secondAttribute="trailing" id="mRE-D2-1rI"/>
+                                    <constraint firstItem="rQT-dt-fhh" firstAttribute="leading" secondItem="gaM-47-ZsB" secondAttribute="leadingMargin" id="oGV-Cd-ASk"/>
+                                </constraints>
+                                <size key="customSize" width="100" height="100"/>
+                                <connections>
+                                    <outlet property="cell" destination="rQT-dt-fhh" id="l97-ZV-0E7"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="yUs-El-pNQ" id="4b9-FP-FVq"/>
+                            <outlet property="delegate" destination="yUs-El-pNQ" id="27N-MG-sYN"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Puzzle" id="vdJ-x6-TT4"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EBY-je-u9L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="504.80000000000001" y="-1101.4992503748126"/>
         </scene>
     </scenes>
 </document>

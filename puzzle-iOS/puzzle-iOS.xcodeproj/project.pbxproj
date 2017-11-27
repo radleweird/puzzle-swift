@@ -20,6 +20,7 @@
 		78508F171FC9F8300005F96F /* MainPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78508F161FC9F8300005F96F /* MainPresenterTest.swift */; };
 		78508F1D1FC9FC240005F96F /* PreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78508F1C1FC9FC240005F96F /* PreferencesManager.swift */; };
 		78877ACA1FCB6115005DB1B1 /* PuzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78877AC91FCB6115005DB1B1 /* PuzzleViewController.swift */; };
+		788F18291FCC0CD2009EB469 /* ViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788F18281FCC0CD2009EB469 /* ViewCell.swift */; };
 		78D372421FCB5E11008627EC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D372411FCB5E11008627EC /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		78508F161FC9F8300005F96F /* MainPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenterTest.swift; sourceTree = "<group>"; };
 		78508F1C1FC9FC240005F96F /* PreferencesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesManager.swift; sourceTree = "<group>"; };
 		78877AC91FCB6115005DB1B1 /* PuzzleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleViewController.swift; sourceTree = "<group>"; };
+		788F18281FCC0CD2009EB469 /* ViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCell.swift; sourceTree = "<group>"; };
 		78D372411FCB5E11008627EC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +119,7 @@
 				78508EA41FC9B7A70005F96F /* AppDelegate.swift */,
 				78877AC91FCB6115005DB1B1 /* PuzzleViewController.swift */,
 				78D372411FCB5E11008627EC /* SettingsViewController.swift */,
+				788F18281FCC0CD2009EB469 /* ViewCell.swift */,
 				78508EA81FC9B7A70005F96F /* Main.storyboard */,
 				78508EAB1FC9B7A70005F96F /* Assets.xcassets */,
 				78508EAD1FC9B7A70005F96F /* LaunchScreen.storyboard */,
@@ -310,6 +313,7 @@
 				78508EA51FC9B7A70005F96F /* AppDelegate.swift in Sources */,
 				78508ED41FC9B8000005F96F /* Field.swift in Sources */,
 				78508F0B1FC9F1610005F96F /* PuzzlePresenter.swift in Sources */,
+				788F18291FCC0CD2009EB469 /* ViewCell.swift in Sources */,
 				78508F0D1FC9F4D10005F96F /* SettingsPresenter.swift in Sources */,
 				78D372421FCB5E11008627EC /* SettingsViewController.swift in Sources */,
 			);

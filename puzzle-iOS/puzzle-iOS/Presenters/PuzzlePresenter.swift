@@ -15,7 +15,7 @@ protocol PuzzleView: class {
     func puzzleSolved()
 }
 
-protocol PuzzlePresenter {
+protocol PuzzlePresenter: class {
     var view: PuzzleView? { get set }
     
     func onNewGame()
@@ -40,6 +40,7 @@ class PuzzlePresenterDefault: PuzzlePresenter {
     init(preferencesManager: PreferencesManager) {
         self.preferencesManager = preferencesManager
         generateFields()
+        self.preferencesManager.preferenceManagerSizeDelegate = self
     }
     
     func onNewGame() {
@@ -48,19 +49,19 @@ class PuzzlePresenterDefault: PuzzlePresenter {
     }
     
     func onSwipeUp() {
-        handleSwipe(direction: .up)
-    }
-    
-    func onSwipeRight() {
-        handleSwipe(direction: .right)
-    }
-    
-    func onSwipeDown() {
         handleSwipe(direction: .down)
     }
     
-    func onSwipeLeft() {
+    func onSwipeRight() {
         handleSwipe(direction: .left)
+    }
+    
+    func onSwipeDown() {
+        handleSwipe(direction: .up)
+    }
+    
+    func onSwipeLeft() {
+        handleSwipe(direction: .right)
     }
     
 }
@@ -80,9 +81,9 @@ extension PuzzlePresenterDefault {
         let fieldSource = FieldSource(source: generateIntSourceArray(withSize: size))
         field = Field<Int>(size: size)!
         field.fieldSource = fieldSource
+        field.shuffle(times: 200)
         finiteField = Field<Int>(size: size)!
         finiteField.fieldSource = fieldSource
-        finiteField.shuffle(times: 200)
     }
     
     private func generateIntSourceArray(withSize size: Int) -> [Int] {

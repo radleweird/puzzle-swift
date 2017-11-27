@@ -17,7 +17,7 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        settingsPresenter = SettingsPresenterDefault(preferencesManager: PreferencesManagerDefault())
+        settingsPresenter = SettingsPresenterDefault(preferencesManager: PreferencesManagerDefault.shared)
         settingsPresenter?.view = self
     }
 

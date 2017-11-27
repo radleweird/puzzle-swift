@@ -12,7 +12,8 @@ protocol PreferenceManagerSizeDelegate: class {
     func update()
 }
 
-protocol PreferencesManager {
+protocol PreferencesManager: class {
+    static var shared: PreferencesManager { get }
     var preferenceManagerSizeDelegate: PreferenceManagerSizeDelegate? { get set }
     
     func settings(fieldSizeWriteWithValue: Int)
@@ -23,6 +24,7 @@ protocol PreferencesManager {
 
 class PreferencesManagerDefault: PreferencesManager {
     
+    static var shared: PreferencesManager = PreferencesManagerDefault()
     weak var preferenceManagerSizeDelegate: PreferenceManagerSizeDelegate?
     
     init() {
