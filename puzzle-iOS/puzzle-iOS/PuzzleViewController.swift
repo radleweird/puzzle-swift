@@ -11,13 +11,16 @@ import UIKit
 class PuzzleViewController: UICollectionViewController {
     
     private var puzzlePresenter: PuzzlePresenter?
-    private var size: Int = 0
+    private var fieldSize: Int = 0
     private var field: [Int] = []
+    private var isFieldChanged = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView?.isScrollEnabled = false
+        collectionView?.center = CGPoint(x: view.frame.width / 2, y: view.frame.height / 2)
+        
         let upSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(onSwipeGesture(_:)))
         upSwipeRecognizer.direction = .up
         let rightSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(onSwipeGesture(_:)))
@@ -55,17 +58,28 @@ class PuzzleViewController: UICollectionViewController {
 extension PuzzleViewController: PuzzleView {
     
     func update(withSize size: Int) {
-        self.size = size
+        self.fieldSize = size
+        self.isFieldChanged = true
     }
     
     func update(withField field: [Int]) {
+        let oldState = self.field
         self.field = field
-        collectionView?.reloadData()
+        
+        if isFieldChanged {
+            collectionView?.reloadData()
+            self.isFieldChanged = false
+            return
+        }
+        
+        let from = oldState.index(of: 0)!
+        let to = self.field.index(of: 0)!
+        let fromIndexPath = IndexPath(row: from % fieldSize, section: from / fieldSize)
+        let toIndexPath = IndexPath(row: to % fieldSize, section: to / fieldSize)
+        
+        collectionView?.moveItem(at: fromIndexPath, to: toIndexPath)
     }
-    
-    func update(withTranslation: (from: Int, to: Int)) {
-    }
-    
+
     func puzzleSolved() {
     }
     
@@ -74,16 +88,16 @@ extension PuzzleViewController: PuzzleView {
 extension PuzzleViewController {
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return size
+        return fieldSize
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return size
+        return fieldSize
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UICollectionView.identifierOfCell, for: indexPath) as! ViewCell
-        cell.setNumber(number: field[indexPath.section * size + indexPath.row])
+        cell.setNumber(number: field[indexPath.section * fieldSize + indexPath.row])
         
         return cell
     }
@@ -91,20 +105,27 @@ extension PuzzleViewController {
 
 extension PuzzleViewController: UICollectionViewDelegateFlowLayout {
     
-    private var sectionInset: UIEdgeInsets {
+    private var availableHeight: CGFloat {
+        return view.frame.height - (tabBarController?.tabBar.frame.height ?? 0) - (navigationController?.navigationBar.frame.height ?? 0)
+    }
+    
+    private var availableWidth: CGFloat {
+        return view.frame.width
+    }
+    
+    private var defaultSectionInsets: UIEdgeInsets {
         return UIEdgeInsets(top: 5.0, left: 10.0, bottom: 5.0, right: 10.0)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return sectionInset
+        return defaultSectionInsets
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let paddingSpace = sectionInset.left * CGFloat(size + 1)
-        let availableSpace = min(view.frame.width, view.frame.height) - paddingSpace
-        let widthAngHeight = availableSpace / CGFloat(size)
-        
-        return CGSize(width: widthAngHeight, height: widthAngHeight)
+        let paddingSpace = defaultSectionInsets.left * CGFloat(fieldSize + 1)
+        let availableSpace = min(availableWidth, availableHeight) - paddingSpace
+        let widthAndHeight = availableSpace / CGFloat(fieldSize)
+        return CGSize(width: widthAndHeight, height: widthAndHeight)
     }
     
 }

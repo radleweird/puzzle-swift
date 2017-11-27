@@ -17,7 +17,13 @@ class ViewCell: UICollectionViewCell {
     }
     
     func setNumber(number: Int) {
-        cell?.text = number != 0 ? String(number) : ""
+        switch number {
+        case 0:
+            cell?.text = ""
+        default:
+            cell?.text = String(number)
+            cell?.backgroundColor = UIColor.yellow
+        }
     }
     
 }

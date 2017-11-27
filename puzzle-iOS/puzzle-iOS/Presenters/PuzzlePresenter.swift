@@ -11,7 +11,6 @@ import Foundation
 protocol PuzzleView: class {
     func update(withSize: Int)
     func update(withField: [Int])
-    func update(withTranslation: (from: Int, to: Int))
     func puzzleSolved()
 }
 
@@ -88,7 +87,6 @@ extension PuzzlePresenterDefault {
     
     private func handleSwipe(direction: Direction) {
         if field != finiteField && field.move(to: direction) {
-            // MARK: - TODO: REPLACE WITH TRANSLATIONS
             view?.update(withField: field.field)
             if field == finiteField {
                 view?.puzzleSolved()
