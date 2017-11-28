@@ -24,7 +24,7 @@ class FieldViewController: UIViewController {
                 var outFrame = frameForCell(withIndex: index(forTag: cell.tag))
                 outFrame.origin.x = outFrame.origin.x + view.frame.width // make cell go out from visible part. [->]
                 cell.tag = Int.max // prevent misleading with new cells
-                UIView.animate(withDuration: 0.2, animations: {
+                UIView.animate(withDuration: Double.disAppearingDuration, animations: {
                     cell.frame = outFrame
                 }, completion: { (_) in
                     cell.removeFromSuperview()
@@ -44,7 +44,7 @@ class FieldViewController: UIViewController {
             initialFrame.origin.x = initialFrame.origin.x - view.frame.width  // make cell come in from invisible part. [->]
             cell.frame = initialFrame
             cell.tag = tag(forIndex: idx)
-            UIView.animate(withDuration: 0.5, animations: {
+            UIView.animate(withDuration: Double.appearingDuration, animations: {
                 cell.frame = frame
             })
             view.addSubview(cell)
@@ -85,7 +85,7 @@ private extension FieldViewController {
     }
     
     func index(forTag: Int) -> Int {
-        return forTag - 25
+        return forTag - tag(forIndex: 0)
     }
     
     func getCellSize() -> CGSize {
@@ -106,9 +106,24 @@ private extension FieldViewController {
         cellTo.tag = tag(forIndex: fromIndex)
         
         let frame = frameForCell(withIndex: fromIndex)
-        UIView.animate(withDuration: 0.1) {
+        UIView.animate(withDuration: Double.translationDuration) {
             cellTo.frame = frame
         }
     }
     
+}
+
+private extension Double {
+    
+    static var appearingDuration: Double {
+        return 0.5
+    }
+    
+    static var disAppearingDuration: Double {
+        return 0.2
+    }
+    
+    static var translationDuration: Double {
+        return 0.1
+    }
 }
