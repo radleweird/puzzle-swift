@@ -113,10 +113,19 @@
                                     <segue destination="Uyn-7d-JBb" kind="embed" id="i30-DQ-xgm"/>
                                 </connections>
                             </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lOL-Ta-SJH">
+                                <rect key="frame" x="231" y="20" width="73" height="30"/>
+                                <state key="normal" title="New game"/>
+                                <connections>
+                                    <action selector="newGameButtionDidClick" destination="e4V-Yy-0il" eventType="touchUpInside" id="MHb-CQ-VU9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="78O-49-vJ7" firstAttribute="trailing" secondItem="lOL-Ta-SJH" secondAttribute="trailing" constant="16" id="0uc-EM-MAs"/>
+                            <constraint firstItem="lOL-Ta-SJH" firstAttribute="top" secondItem="78O-49-vJ7" secondAttribute="top" id="8BF-EK-k91"/>
                             <constraint firstItem="7aj-XO-rZg" firstAttribute="leading" secondItem="78O-49-vJ7" secondAttribute="leading" constant="10" id="N5I-ff-IDY"/>
                             <constraint firstItem="7aj-XO-rZg" firstAttribute="centerY" secondItem="78O-49-vJ7" secondAttribute="centerY" id="SEk-qN-Agj"/>
                             <constraint firstItem="78O-49-vJ7" firstAttribute="trailing" secondItem="7aj-XO-rZg" secondAttribute="trailing" constant="10" id="fD5-aI-MuR"/>

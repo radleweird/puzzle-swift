@@ -19,16 +19,34 @@ class FieldViewController: UIViewController {
     }
     
     func set(fieldSize: Int) {
-        self.fieldSize = fieldSize
         view.subviews.forEach({ cell in
-            cell.removeFromSuperview()
+            if cell.tag >= tag(forIndex: 0) {
+                var outFrame = frameForCell(withIndex: index(forTag: cell.tag))
+                outFrame.origin.x = outFrame.origin.x + view.frame.width // make cell go out from visible part. [->]
+                cell.tag = Int.max // prevent misleading with new cells
+                UIView.animate(withDuration: 0.2, animations: {
+                    cell.frame = outFrame
+                }, completion: { (_) in
+                    cell.removeFromSuperview()
+                })
+            } else {
+                cell.removeFromSuperview()
+            }
         })
-
+        
+        self.fieldSize = fieldSize
         let cellSize = getCellSize()
         print(cellSize)
         for idx in 0..<fieldSize * fieldSize {
-            let cell = UIButton(frame: frameForCell(withIndex: idx))
+            let cell = UIButton()
+            let frame = frameForCell(withIndex: idx)
+            var initialFrame = frame
+            initialFrame.origin.x = initialFrame.origin.x - view.frame.width  // make cell come in from invisible part. [->]
+            cell.frame = initialFrame
             cell.tag = tag(forIndex: idx)
+            UIView.animate(withDuration: 0.5, animations: {
+                cell.frame = frame
+            })
             view.addSubview(cell)
         }
         
@@ -64,6 +82,10 @@ private extension FieldViewController {
     
     func tag(forIndex index: Int) -> Int {
         return index + 25
+    }
+    
+    func index(forTag: Int) -> Int {
+        return forTag - 25
     }
     
     func getCellSize() -> CGSize {

@@ -52,6 +52,10 @@ class PuzzleViewController: UIViewController {
         }
     }
     
+    @IBAction func newGameButtionDidClick() {
+        puzzlePresenter?.onNewGame()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if fieldVC == nil && segue.destination is FieldViewController {
             fieldVC = segue.destination as? FieldViewController
