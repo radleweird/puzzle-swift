@@ -20,6 +20,7 @@
 		78508F1D1FC9FC240005F96F /* PreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78508F1C1FC9FC240005F96F /* PreferencesManager.swift */; };
 		78877ACA1FCB6115005DB1B1 /* PuzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78877AC91FCB6115005DB1B1 /* PuzzleViewController.swift */; };
 		788F18291FCC0CD2009EB469 /* ViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788F18281FCC0CD2009EB469 /* ViewCell.swift */; };
+		78D32FF21FCD8EC800763ECF /* FieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D32FF11FCD8EC800763ECF /* FieldViewController.swift */; };
 		78D372421FCB5E11008627EC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D372411FCB5E11008627EC /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		78508F1C1FC9FC240005F96F /* PreferencesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesManager.swift; sourceTree = "<group>"; };
 		78877AC91FCB6115005DB1B1 /* PuzzleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleViewController.swift; sourceTree = "<group>"; };
 		788F18281FCC0CD2009EB469 /* ViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCell.swift; sourceTree = "<group>"; };
+		78D32FF11FCD8EC800763ECF /* FieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldViewController.swift; sourceTree = "<group>"; };
 		78D372411FCB5E11008627EC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +117,7 @@
 				78508ED71FC9CD1A0005F96F /* Presenters */,
 				78508ED21FC9B7F30005F96F /* Model */,
 				78508EA41FC9B7A70005F96F /* AppDelegate.swift */,
+				78D32FF11FCD8EC800763ECF /* FieldViewController.swift */,
 				78877AC91FCB6115005DB1B1 /* PuzzleViewController.swift */,
 				78D372411FCB5E11008627EC /* SettingsViewController.swift */,
 				788F18281FCC0CD2009EB469 /* ViewCell.swift */,
@@ -306,6 +309,7 @@
 			files = (
 				78508F1D1FC9FC240005F96F /* PreferencesManager.swift in Sources */,
 				78877ACA1FCB6115005DB1B1 /* PuzzleViewController.swift in Sources */,
+				78D32FF21FCD8EC800763ECF /* FieldViewController.swift in Sources */,
 				78508EA51FC9B7A70005F96F /* AppDelegate.swift in Sources */,
 				78508ED41FC9B8000005F96F /* Field.swift in Sources */,
 				78508F0B1FC9F1610005F96F /* PuzzlePresenter.swift in Sources */,
